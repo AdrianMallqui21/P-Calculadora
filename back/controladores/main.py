@@ -1,10 +1,20 @@
 from fastapi import FastAPI, HTTPException, APIRouter
 import servicios.main as servicios
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="Calculadora API",
     description="API para realizar operaciones matemáticas básicas",
     version="1.0.0",
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5500",
+        "http://127.0.0.1:5500",
+    ],
+    allow_methods=["GET", "DELETE"],
+    allow_headers=["*"],
 )
 router = APIRouter(prefix="/api")
 
@@ -45,9 +55,6 @@ def dividir(a: float, b: float):
         raise HTTPException(status_code=400, detail=str(e))
 
 
-app.include_router(router)
-
-
 @router.get("/historial")
 def historial():
     try:
@@ -64,3 +71,6 @@ def eliminarOperaciones():
         return resultado
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+app.include_router(router)

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- figma:head-start -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Calculadora web de Dampest Labs con historial de operaciones."
+    />
+    <title>Dampest Labs | Calculadora</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <!-- figma:body-start -->
+    <div class="app-shell">
+      <header class="site-header">
+        <div class="brand">
+          <div class="brand__mark">DL</div>
+          <div class="brand__text">
+            <strong>DAMPEST LABS</strong>
+            <span>Calculadora Python</span>
+          </div>
+        </div>
+        <h1>BIENVENIDO A MI PRIMERA CALCULADORA</h1>
+      </header>
+
+      <main class="workspace">
+        <section
+          class="panel calculator"
+          aria-labelledby="calculator-title"
+        >
+          <h2 id="calculator-title">Calculadora</h2>
+          <div
+            class="calculator__display"
+            aria-label="Pantalla de resultados"
+          ><span id="expression"></span><output id="display" aria-live="polite">0</output></div>
+
+          <div class="keypad">
+            <button class="key" type="button" data-digit="1">1</button>
+            <button class="key" type="button" data-digit="2">2</button>
+            <button class="key" type="button" data-digit="3">3</button>
+            <button class="key" type="button" data-digit="0">0</button>
+            <button class="key key--operator" type="button" data-operation="*" aria-label="Multiplicar">*</button>
+
+            <button class="key" type="button" data-digit="4">4</button>
+            <button class="key" type="button" data-digit="5">5</button>
+            <button class="key" type="button" data-digit="6">6</button>
+            <button class="key key--operator" type="button" data-operation="+" aria-label="Sumar">+</button>
+            <button class="key key--operator" type="button" data-operation="/" aria-label="Dividir">/</button>
+
+            <button class="key" type="button" data-digit="7">7</button>
+            <button class="key" type="button" data-digit="8">8</button>
+            <button class="key" type="button" data-digit="9">9</button>
+            <button class="key key--operator" type="button" data-operation="-" aria-label="Restar">-</button>
+            <button class="key key--equals" type="button" id="equals" aria-label="Calcular resultado">=</button>
+          </div>
+          <div class="edit-controls" aria-label="Corregir entrada">
+            <button id="reset" type="button" aria-label="Reiniciar cálculo">C</button>
+            <button id="backspace" type="button" aria-label="Borrar último dígito">⌫</button>
+            <button id="decimal" type="button" aria-label="Punto decimal">.</button>
+            <button id="sign" type="button" aria-label="Cambiar signo">±</button>
+          </div>
+          <p id="message" role="status"></p>
+        </section>
+
+        <section class="panel history" aria-labelledby="history-title">
+          <h2 id="history-title">Historial</h2>
+          <div class="history__list" id="history-list" aria-label="Operaciones de esta sesión"></div>
+          <button id="clear-history" class="clear-button" type="button">BORRAR</button>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer__content">
+          <section class="footer__about">
+            <h2>DAMPEST LABS</h2>
+            <p>
+              Esta es mi primera calculadora en Python aprovechando los
+              conocimientos en arquitectura de software, manejo de APIs, control
+              de versiones y conocimiento en Python.
+            </p>
+          </section>
+
+          <section class="footer__column">
+            <h2>Operaciones disponibles</h2>
+            <div class="footer__row">
+              <span class="footer__icon footer__icon--small">+</span>
+              <span>Suma</span>
+            </div>
+            <div class="footer__row">
+              <span class="footer__icon footer__icon--small">−</span>
+              <span>Resta</span>
+            </div>
+            <div class="footer__row">
+              <span class="footer__icon footer__icon--small">×</span>
+              <span>Multiplicación</span>
+            </div>
+            <div class="footer__row">
+              <span class="footer__icon footer__icon--small">÷</span>
+              <span>División</span>
+            </div>
+          </section>
+
+          <section class="footer__column">
+            <h2>Redes sociales</h2>
+            <div class="footer__row">
+              <span class="footer__icon">@</span>
+              <span>LinkedIn</span>
+            </div>
+            <div class="footer__row">
+              <span class="footer__icon">ig</span>
+              <span>Instagram</span>
+            </div>
+          </section>
+        </div>
+
+        <div class="footer__meta">
+          <span>DAMPEST LABS</span>
+          <span class="footer__pill">PYTHON</span>
+        </div>
+      </footer>
+    </div>
+    <!-- figma:body-end -->
+  </body>
+</html>

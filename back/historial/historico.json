@@ -1,0 +1,14 @@
+[
+    {
+        "Primer número": 21.0,
+        "Segundo número": 5.0,
+        "Operación": "+",
+        "Resultado": 26.0
+    },
+    {
+        "Primer número": 63.0,
+        "Segundo número": 0.0,
+        "Operación": "*",
+        "Resultado": 0.0
+    }
+]
