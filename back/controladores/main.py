@@ -1,7 +1,11 @@
 from fastapi import FastAPI, HTTPException, APIRouter
 import servicios.main as servicios
 
-app = FastAPI()
+app = FastAPI(
+    title="Calculadora API",
+    description="API para realizar operaciones matemáticas básicas",
+    version="1.0.0",
+)
 router = APIRouter(prefix="/api")
 
 
