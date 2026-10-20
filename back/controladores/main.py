@@ -46,3 +46,21 @@ def dividir(a: float, b: float):
 
 
 app.include_router(router)
+
+
+@router.get("/historial")
+def historial():
+    try:
+        operaciones = servicios.listarOperaciones()
+        return {"historial": operaciones}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.delete("/historial-eliminar")
+def eliminarOperaciones():
+    try:
+        resultado = servicios.eliminarOperaciones()
+        return resultado
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
