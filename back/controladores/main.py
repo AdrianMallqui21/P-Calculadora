@@ -1,41 +1,44 @@
+from fastapi import FastAPI, HTTPException, APIRouter
+import servicios.main as servicios
+
+app = FastAPI()
+router = APIRouter(prefix="/api")
+
+
+@router.get("/sumar")
 def sumar(a: float, b: float):
-    if a is None or b is None:
-        raise ValueError("Tiene que ingresar dos números")
-
-    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
-        raise ValueError("Los valores deben ser números")
-
-    return a + b
+    try:
+        resultado = servicios.sumar(a, b)
+        return {"resultado": resultado}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
 
+@router.get("/restar")
 def restar(a: float, b: float):
-    if a is None or b is None:
-        raise ValueError("Tiene que ingresar dos números")
-
-    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
-        raise ValueError("Los valores deben ser números")
-
-    return a - b
+    try:
+        resultado = servicios.restar(a, b)
+        return {"resultado": resultado}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
 
+@router.get("/multiplicar")
 def multiplicar(a: float, b: float):
-    if a is None or b is None:
-        raise ValueError("Tiene que ingresar dos números")
-
-    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
-        raise ValueError("Los valores deben ser números")
-
-    return a * b
+    try:
+        resultado = servicios.multiplicar(a, b)
+        return {"resultado": resultado}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
 
+@router.get("/dividir")
 def dividir(a: float, b: float):
-    if a is None or b is None:
-        raise ValueError("Tiene que ingresar dos números")
+    try:
+        resultado = servicios.dividir(a, b)
+        return {"resultado": resultado}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
-    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
-        raise ValueError("Los valores deben ser números")
 
-    if b == 0:
-        raise ValueError("No se puede dividir por cero")
-
-    return a / b
+app.include_router(router)
